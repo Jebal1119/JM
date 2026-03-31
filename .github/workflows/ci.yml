@@ -15,8 +15,11 @@ jobs:
     - name: Build Docker Image
       run: docker build -t my-html-app .
 
-    - name: Run Container Test
+    - name: Run Container
       run: docker run -d -p 8080:80 my-html-app
+
+    - name: Wait for container
+      run: sleep 10
 
     - name: Test Application
       run: curl http://localhost:8080
